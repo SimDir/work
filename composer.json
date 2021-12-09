@@ -1,0 +1,26 @@
+{
+    "name": "simdir/rrdevcrm",
+    "require": {
+        "filp/whoops": "^2.5",
+        "monolog/monolog": "^2.0",
+        "gabordemooij/redbean": "^5.4",
+        "guzzlehttp/guzzle": "^6.5",
+        "php-http/message": "^1.8",
+        "swiftmailer/swiftmailer": "^6.0",
+        "symfony/var-dumper": "^5.0",
+        "phpoffice/phpspreadsheet": "^1.11",
+        "irazasyed/telegram-bot-sdk": "^3.3",
+        "teamtnt/tntsearch": "^2.7"
+    },
+    "authors": [
+        {
+            "name": "Ivan P Kolotilkin",
+            "email": "logic@xaker.ru"
+        }
+    ],
+    "autoload": {
+        "psr-4": {
+            "rrdev\\": "app/"
+        }
+    }
+}

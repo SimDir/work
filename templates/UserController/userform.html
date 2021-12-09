@@ -1,0 +1,447 @@
+<style>
+    #UserForm {
+        height: 100%;
+        display: flex;
+        align-items: center;
+        padding-top: 40px;
+        padding-bottom: 40px;
+        background-color: #f5f5f5;
+        overflow-x: hidden;
+        overflow-y: auto;
+        background: rgb(174,185,238);
+        background: radial-gradient(circle, rgba(174,185,238,1) 0%, rgba(94,150,215,1) 100%);
+    }
+
+    .form-user {
+        width: 100%;
+        max-width: 500px;
+        padding: 15px;
+        margin: auto;
+    }
+
+    .form-label-group {
+        position: relative;
+        margin-bottom: 1rem;
+    }
+
+    .form-label-group input,
+    .form-label-group label {
+        height: 3.125rem;
+        padding: .75rem;
+    }
+
+    .form-label-group label {
+        position: absolute;
+        top: 0;
+        left: 0;
+        display: block;
+        width: 100%;
+        color: #495057;
+        pointer-events: none;
+        cursor: text;
+        /* Match the input under the label */
+        border: 1px solid transparent;
+        border-radius: .25rem;
+        transition: all .1s ease-in-out;
+    }
+
+    .form-label-group input::-webkit-input-placeholder {
+        color: transparent;
+    }
+
+    .form-label-group input::-moz-placeholder {
+        color: transparent;
+    }
+
+    .form-label-group input::-ms-input-placeholder {
+        color: transparent;
+    }
+
+    .form-label-group input::placeholder {
+        color: transparent;
+    }
+
+    .form-label-group input:not(:-moz-placeholder-shown) {
+        padding-top: 1.25rem;
+        padding-bottom: .25rem;
+    }
+
+    .form-label-group input:not(:placeholder-shown) {
+        padding-top: 1.25rem;
+        padding-bottom: .25rem;
+    }
+
+    .form-label-group input:not(:-moz-placeholder-shown)~label {
+        padding-top: .25rem;
+        padding-bottom: .25rem;
+        font-size: 12px;
+        color: #777;
+    }
+
+    .form-label-group input:not(:placeholder-shown)~label {
+        padding-top: .25rem;
+        padding-bottom: .25rem;
+        font-size: 12px;
+        color: #777;
+    }
+
+    /* Fallback for Edge
+    -------------------------------------------------- */
+    @supports (-ms-ime-align: auto) {
+        .form-label-group {
+            display: flex;
+            flex-direction: column-reverse;
+        }
+
+        .form-label-group label {
+            position: static;
+        }
+
+        .form-label-group input::-ms-input-placeholder {
+            color: #777;
+        }
+    }
+    .auth-links{
+        display: flex;
+        justify-content: center;
+        column-gap: 7px;
+    }
+    .auth-links a{
+        text-decoration: none;
+        color: #495057;
+    }
+    .auth-links a:hover{
+        /*        text-decoration: underline;
+                text-decoration: overline;*/
+        color: #999099;
+    }
+
+    .fade-enter-active,
+    .fade-leave-active {
+        transition: opacity 0.5s ease;
+    }
+
+    .fade-enter-from,
+    .fade-leave-to {
+        opacity: 0;
+    }
+
+    .bounce-enter-active {
+        animation: bounce-in .9s;
+    }
+    .bounce-leave-active {
+        animation: bounce-in .3s reverse;
+        /*position: fixed;*/
+    }
+    @keyframes bounce-in {
+        0% {
+            transform: scale(0);
+        }
+        100% {
+            transform: scale(1);
+        }
+    }
+</style>
+<div id="UserForm" class="h-100 w-100">
+    <!-- Modal -->
+    <div class="modal fade" id="personalData" tabindex="-1" aria-labelledby="personalData" >
+        <div class="modal-dialog modal-xl">
+            <div class="modal-content">
+                <!--                <div class="modal-header">
+                                    <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
+                                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                                </div>-->
+                <div class="modal-body">
+                    Я согласен (согласна) на обработку моих персональных данных для возможности оказания услуг
+                    связи, информирования меня о специальных предложениях в сфере телекоммуникационных услуг
+                    и информирования меня об иных товарах и услугах.
+                    Настоящим Заявитель соглашается на:
+                    <ul class="list-unstyled">
+                        <li>1. Обработку персональных данных Заявителя как с помощью программно-аппаратных средств,
+                            так и без их использования. Персональные данные Заявителя обрабатываются в целях выявления
+                            возможности оказания услуг связи. Под обработкой персональных данных понимаются любое
+                            действие (операция) или совокупность действий (операций), совершаемых с использованием
+                            средств автоматизации или без использования таких средств с персональными данными, включая
+                            сбор, запись, систематизацию, накопление, хранение, уточнение (обновление, изменение),
+                            извлечение, использование, передачу (распространение, предоставление, доступ),
+                            обезличивание, блокирование, удаление, уничтожение персональных данных;
+                            Оператор обеспечивает конфиденциальность и безопасность полученных персональных данных.
+                            Оператор хранит персональные данные Заявителя и носители персональных данных 3 года с
+                            момента расторжения договора, являющегося основанием для обработки персональных данных,
+                            а в случае не заключения договора - 3 года с момента начала хранения. Настоящим Заявитель
+                            соглашается на передачу третьим лицам своих персональных данных для осуществления
+                            подключения к услугам, осуществления иных действий, связанных с заключением договора на
+                            оказание услуг связи, а также для предоставления Заявителю информации рекламного характера
+                            об иных товарах и услугах.</li>
+                        <li>2. Получение информационных сообщений об услугах связи и иных неразрывно связанных с
+                            ними услугах, иных сообщений рекламного характера на номер указанного им мобильного
+                            телефона и адрес электронной почты до даты получения от Заявителя заявления об отзыве
+                            согласия на обработку персональных данных.</li>
+                        <li>3. Подписание мною настоящего согласия (путём проставления специальной отметки в
+                            соответствующем поле на сайте) является безусловным выражением согласия на обработку
+                            указанных мной персональных данных, в том числе и с возможностью передачи третьим лицам,
+                            для целей, связанных с заключением и исполнение договора об оказании услуг связи,
+                            информирования меня о специальных предложениях в сфере телекоммуникационных услуг, а
+                            также об иных товарах и услугах.</li>
+                        <li>4. Оператор осуществляет обработку персональных данных Заявителя в соответствии с
+                            Политикой в отношении обработки персональных данных и реализации требований к защите
+                            персональных данных, размещенных на сайте Оператора.</li>
+                    </ul>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Закрыть</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <main class="form-user">
+        <form @submit.prevent="UserFormSubmt">
+            <div class="text-center mb-4">
+                <div v-if="errorMsg" class="alert alert-danger alert-dismissible fade show position-absolute start-50 translate-middle" style="z-index: 2000">
+                    <strong>Ошибка!</strong> {{ errorMsg }}
+                    <button @click.prevent="errorMsg=''" type="button" class="btn-close"></button>
+                </div>
+                <h3 class="h3 mb-3 font-weight-normal">{{ formTitle }}</h3>
+                <div class="auth-links">
+                    <a @click.prevent="state=0" href="/user/login">Войти.</a>
+                    <a @click.prevent="state=1" href="/user/registre">Зарегистрироватся.</a>
+                    <a href="/">На главную.</a>
+                </div>
+            </div>
+            <div  class="form-label-group">
+                <input v-model="User.email" type="email" id="inputEmail" class="form-control"
+                       placeholder="Email address" required>
+                <label for="inputEmail">E-mail</label>
+            </div>
+            <div v-if="state===1" class="checkbox mb-3">
+                <label>
+                    <input v-model="addoptoin" type="checkbox"> Рассказать о себе подробнее
+                </label>
+            </div>
+            <transition name="bounce" appear>
+                <div v-if="addoptoin" class="form-label-group">
+                    <div class="form-label-group">
+                        <select v-model="User.gender" class="form-control" id="inputGender">
+                            <option selected disabled :value="">Ваш пол?...</option>
+                            <option :value="0">Ж</option>
+                            <option :value="1">М</option>
+                        </select>
+                        <!--<label for="inputGender">Options</label>-->
+                    </div>
+                    <div class="form-label-group">
+                        <input v-model="User.lastname" type="text" id="inputlastname" class="form-control"
+                               placeholder="Фамилия">
+                        <label for="inputlastname">Фамилия</label>
+                    </div>
+                    <div class="form-label-group">
+                        <input v-model="User.firstname" type="text" id="inputfirstname" class="form-control"
+                               placeholder="Имя">
+                        <label for="inputfirstname">Имя</label>
+                    </div>
+                    <div class="form-label-group">
+                        <input v-model="User.patronymic" type="text" id="inputpatronymic" class="form-control"
+                               placeholder="Отчество">
+                        <label for="inputpatronymic">Отчество</label>
+                    </div>
+                    <div class="form-label-group">
+                        <input v-model="User.phone" type="tel" pattern="(\+?\d[- .]*){7,13}" id="inputPhone"
+                               class="form-control" placeholder="Phone +79098887766" required>
+                        <label for="inputPhone">Номер телефона</label>
+                    </div>
+                    <div class="form-label-group">
+                        <input v-model="User.birthday" type="date" id="inputbirthday" class="form-control"
+                               placeholder="Дата рождения">
+                        <label for="inputbirthday">Дата рождения</label>
+                    </div>
+<!--                    <div class="form-label-group">
+                        <input v-model="User.address" type="text" id="inputaddress" class="form-control"
+                               placeholder="Адрес проживания">
+                        <label for="inputaddress">Адрес проживания</label>
+                    </div>-->
+                </div>
+            </transition>
+            <div class="form-label-group">
+                <input v-model="User.password" type="password" id="inputPassword" class="form-control"
+                       placeholder="Password" required>
+                <label for="inputPassword">Пароль</label>
+            </div>
+            <div v-if="state===1" class="form-label-group">
+                <input v-model="password" type="password" id="inputfPassword" class="form-control"
+                       placeholder="Password" required>
+                <label for="inputfPassword">Повторите пароль</label>
+            </div>
+
+
+
+            <div class="checkbox mb-3">
+                <label v-if="state===0">
+                    <input  type="checkbox" v-model="rememberMe"> Запомнить меня
+                </label>
+                <label v-if="state===1">
+                    <input type="checkbox" v-model="personePolotik"> Даю согласие на обработку
+                    <a href="#" class="text-muted mx-auto" data-bs-toggle="modal" data-bs-target="#personalData">персональных данных</a>
+                </label>
+
+            </div>
+
+            <div class="d-grid gap-3">
+                <button class="btn btn-lg btn-primary btn-block mx-auto" type="submit" :disabled="inProcess" style="width:150px; height: 50px;">
+                    <span v-if="!inProcess" >{{ formTitle }}</span>
+                    <div v-else class="spinner-border text-dark mx-auto" role="status">
+                        <span class="visually-hidden">Загрузка...</span>
+                    </div>
+                </button>
+                
+            </div>
+
+        </form>
+    </main>
+
+</div>
+
+<script>
+    const UserForm = {
+        data() {
+            return {
+                User: {
+                    email: '', phone: '', password: '',
+                    lastname: '', firstname: '', patronymic: '', birthday: ''
+                    , gender: ''
+
+                },
+                formTitle: 'Войти', errorMsg: '', rememberMe: false, inProcess: false,
+                addoptoin: false,
+                state: 0, password: '', Modal: {}, personePolotik: false,
+                redirectfrom: '<{ redirectfrom }>'
+            };
+        },
+        watch: {
+            state(newstate, oldstate) {
+                if (newstate === 1) {
+                    this.formTitle = 'Регистрация';
+                    window.history.pushState('/user/signup', "state", '/user/signup');
+                } else if (newstate === 0) {
+                    window.history.pushState('/user/login', "state", '/user/login');
+                    this.formTitle = 'Войти';
+                    this.addoptoin = false;
+                }
+                document.title = this.formTitle;
+            }
+        },
+        created() {
+            var url = window.location.href.split('/');
+            url = url[url.length - 1];
+            if (url === 'login') {
+                this.state = 0;
+            } else if (url === 'signup') {
+                this.state = 1;
+            }
+//            window.onpopstate = (event) => {
+//                if (event.state !== null) {
+//
+//                }
+//                console.log(event.state);
+//            };
+
+            this.User.birthday = luxon.DateTime.now().toSQLDate();
+            if (this.state === 0) {
+                this.User.email = localStorage.getItem('UserFormEmail');
+                this.User.password = localStorage.getItem('UserFormPassword');
+                this.rememberMe = JSON.parse(localStorage.getItem('UserFormRememberMe'));
+            }
+
+        },
+        methods: {
+            UserFormSubmt() {
+                this.inProcess = true;
+                console.log(this.User.birthday);
+                this.errorMsg = '';
+                if (this.state === 1) {
+                    return this.UserSignup();
+                } else if (this.state === 0) {
+                    return this.UserLogin();
+                }
+            },
+            UserSignup() {
+                if (!this.personePolotik) {
+                    this.errorMsg = 'Вы не согласны чтобы мы обработали ваши персональные данные';
+                    this.inProcess = false;
+                    return;
+                }
+                if (this.User.password !== this.password) {
+                    this.errorMsg = 'Пароли не совпадают';
+                    this.inProcess = false;
+                    return;
+                }
+                let apiParam = {
+                    model: 'user',
+                    method: 'signup',
+                    data: this.User
+                };
+
+                fetch('/api/v1/user/signup', {
+                    mode: 'cors',
+                    method: 'POST',
+                    cache: 'no-cache',
+                    credentials: 'same-origin',
+                    body: JSON.stringify(apiParam)
+                }).then(res => res.json())
+                        .then(res => {
+                            if (res.hasOwnProperty('error')) {
+                                this.inProcess = false;
+                                this.errorMsg = res.error;
+                            } else if (res.hasOwnProperty('success')) {
+                                setTimeout(() => {
+                                    this.inProcess = false;
+                                    this.state = 0;
+                                }, 1000);
+                            }
+                            this.inProcess = false;
+                        })
+                        .catch((e) => {
+                            this.errorMsg = e.message;
+                            console.log(e);
+                            this.inProcess = false;
+                        });
+            },
+            UserLogin() {
+                if (this.rememberMe) {
+                    localStorage.setItem('UserFormRememberMe', JSON.parse(this.rememberMe));
+                    localStorage.setItem('UserFormEmail', this.User.email);
+                    localStorage.setItem('UserFormPassword', this.User.password);
+                } else {
+                    localStorage.setItem('UserFormRememberMe', false);
+                    localStorage.setItem('UserFormEmail', '');
+                    localStorage.setItem('UserFormPassword', '');
+                }
+                let apiParam = {
+                    model: 'user',
+                    method: 'login',
+                    data: this.User
+                };
+                fetch('/api/v1/user/login', {
+                    mode: 'cors',
+                    method: 'POST',
+                    cache: 'no-cache',
+                    credentials: 'same-origin',
+                    body: JSON.stringify(apiParam)
+                })
+                        .then(res => res.json())
+                        .then(res => {
+                            if (res.hasOwnProperty('error')) {
+                                this.errorMsg = res.error;
+                                this.inProcess = false;
+                            } else if (res.hasOwnProperty('success')) {
+                                setTimeout(() => {
+                                    this.inProcess = false;
+                                    window.location.replace(this.redirectfrom);
+                                }, 1000);
+                            }
+                        });
+            }
+        }
+    };
+    Vue.createApp(UserForm).mount('#UserForm');
+
+
+</script>

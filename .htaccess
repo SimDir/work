@@ -1,0 +1,54 @@
+AddDefaultCharset utf-8
+#<IfModule mod_rewrite.c>
+#    RewriteEngine on
+#    RewriteRule ^css/(.*)$ ./public/css/$1 [NC,L]
+#    RewriteRule ^js/(.*)$ ./public/js/$1 [NC,L]
+#    RewriteRule ^fonts/(.*)$ ./public/fonts/$1 [NC,L]
+#    RewriteRule ^img/(.*)$ ./public/img/$1 [NC,L]
+#
+#
+#    RewriteBase /
+#    RewriteRule ^index\.php$ - [L]
+#    RewriteCond %{REQUEST_FILENAME} !-f
+#    RewriteCond %{REQUEST_FILENAME} !-d
+#    RewriteRule . /index.php [L]
+#
+#
+#</IfModule>
+
+<IfModule mod_rewrite.c>
+    <IfModule mod_negotiation.c>
+        Options -MultiViews
+    </IfModule>
+
+    RewriteEngine On
+
+#    RewriteRule ^css/(.*)$ ./public/css/$1 [NC,L]
+#    RewriteRule ^js/(.*)$ ./public/js/$1 [NC,L]
+#    RewriteRule ^fonts/(.*)$ ./public/fonts/$1 [NC,L]
+#    RewriteRule ^img/(.*)$ ./public/img/$1 [NC,L]
+
+#    RewriteCond %{REQUEST_FILENAME} -d [OR]
+#    RewriteCond %{REQUEST_FILENAME} -f
+#    RewriteRule ^ ^$1 [N]
+
+#    RewriteCond %{REQUEST_URI} (\.\w+$) [NC]
+#    RewriteRule ^(.*)$ public/$1
+
+#    RewriteCond %{REQUEST_FILENAME} !-d
+#    RewriteCond %{REQUEST_FILENAME} !-f
+#    RewriteRule ^ index.php
+
+RewriteRule ^\.htaccess$ - [F]
+
+RewriteCond %{REQUEST_URI} =""
+RewriteRule ^.*$ /public/index.php [NC,L]
+
+RewriteCond %{REQUEST_URI} !^/public/.*$
+RewriteRule ^(.*)$ /public/$1
+
+RewriteCond %{REQUEST_FILENAME} -f
+RewriteRule ^.*$ - [NC,L]
+
+RewriteRule ^public/.*$ /public/index.php [NC,L]
+</IfModule>

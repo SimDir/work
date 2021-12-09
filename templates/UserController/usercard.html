@@ -1,0 +1,56 @@
+<div class="card" >
+    <div class="card-body">
+        <nav>
+            <div class="nav nav-tabs" id="nav-tab" role="tablist">
+                <button class="nav-link active" id="nav-profile-tab" data-bs-toggle="tab" data-bs-target="#nav-profile" type="button" role="tab" aria-controls="nav-profile" aria-selected="false">profile</button>
+                <button class="nav-link" id="nav-home-tab" data-bs-toggle="tab" data-bs-target="#nav-password" type="button" role="tab" aria-controls="nav-password" aria-selected="true">password</button>
+
+            </div>
+        </nav>
+        <div class="tab-content" id="nav-tabContent">
+
+            <div class="tab-pane fade show active" id="nav-profile" role="tabpanel" aria-labelledby="nav-profile-tab">
+
+
+                <form action="/user/submit">
+                    <div class="mb-3">
+                        <label for="exampleInputEmail1" class="form-label">email address</label>
+                        <input name="email" type="email" value="<{email}>" class="form-control" id="exampleInputEmail1" required>
+                    </div>
+                    <div class="mb-3">
+                        <label for="exampleInputlastname" class="form-label">lastname</label>
+                        <input name="lastname" type="text" value="<{lastname}>" class="form-control" id="exampleInputlastname" required>
+                    </div>
+                    <div class="mb-3">
+                        <label for="exampleInputfirstname" class="form-label">firstname</label>
+                        <input name="firstname" type="text" value="<{firstname}>" class="form-control" id="exampleInputEmail1" required>
+                    </div>
+                    <div class="mb-3">
+                        <label for="exampleInputpatronymic" class="form-label">patronymic</label>
+                        <input name="patronymic" type="text" value="<{patronymic}>" class="form-control" id="exampleInputEmail1" required>
+                    </div>
+
+                    <button type="submit" class="btn btn-primary">Submit</button>
+                </form>
+            </div>
+            <div class="tab-pane fade" id="nav-password" role="tabpanel" aria-labelledby="nav-password-tab">
+                <form action="/user/submitpwd" method="post">
+                    <div class="mb-3">
+                        <label for="exampleInputPassword1" class="form-label">Password</label>
+                        <input name="password1" type="password" class="form-control" id="exampleInputPassword1" required>
+                    </div>
+                    <div class="mb-3">
+                        <label for="exampleInputPassword2" class="form-label">Password2</label>
+                        <input name="password2" type="password" class="form-control" id="exampleInputPassword2" required>
+                    </div>
+                    <button type="submit" class="btn btn-danger">Submit</button>
+                </form>
+            </div>
+
+
+        </div>
+
+
+
+    </div>
+</div>
