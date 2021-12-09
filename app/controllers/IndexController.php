@@ -4,13 +4,11 @@ namespace rrdev\controllers;
 
 use rrdev\core\Controller;
 
-defined('ROOT') OR die('No direct script access.');
+class indexController extends Controller {
 
-class IndexController extends Controller {
+    public function indexAction($param = null) {
 
-    public function IndexAction($param = null) {
-
-        return $this->View->Render('home.html');
+        return $this->view->render('home.html');
     }
 
 }
