@@ -63,7 +63,7 @@ NOT IN
 		`orders`.`user_id`=`user`.`id`
 	)
 ```
-или так `select u.email from user u left join orders o on u.id=o.user_id where o.id is null`
+или так `select u.login from user u left join orders o on u.id=o.user_id where o.id is null`
 
 вывести список логинов пользователей которые сделали более двух заказов
 ```
