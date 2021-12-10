@@ -77,6 +77,8 @@ ON
 	`user`.`id`=`orders`.`user_id`
 WHERE 
 	orders.price>2
+GROUP BY 
+	`user`.`id`
 
 ```
 
