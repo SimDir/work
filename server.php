@@ -47,7 +47,7 @@ define('ERROR_URL', '/404.html');
 
 define('SESSION_PREFIX', 'd_session_b');
 define('SESSION_DIR', SITE_DIR . 'usersessions'); // false если не нужно использовать дирикторию а оставить на усмотрение сервера
-define('SESSION_DRIVER', 'database');
+define('SESSION_DRIVER', 'file');
 
 // Check if SSL
 if ((isset($_SERVER['HTTPS']) && (($_SERVER['HTTPS'] == 'on') || ($_SERVER['HTTPS'] == '1'))) || $_SERVER['SERVER_PORT'] == 443) {

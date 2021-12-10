@@ -15,7 +15,7 @@
  * 
  */
 return [
-    'db_driver' => 'MariaDB',
+    'db_driver' => 'SQLite',
     'db_host' => '127.0.0.1',
     'db_port' => '3306',
     'db_frozen' => false,
