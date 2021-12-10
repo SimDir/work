@@ -46,7 +46,7 @@ HAVING
 
 ```
 SELECT 
-	* 
+	`user`.`login` 
 FROM 
 	`user` 
 WHERE 
